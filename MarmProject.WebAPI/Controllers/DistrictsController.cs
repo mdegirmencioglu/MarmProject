@@ -19,11 +19,26 @@ namespace MarmProject.WebAPI.Controllers
          
         }
 
-        [HttpGet]
+        [HttpGet("getall")]
 
         public List<District> Get()
         {
             return _districtService.GetAll();
+        }
+
+        [HttpPost]
+
+        public District Post(District district)
+        {
+            _districtService.Add(district);
+            return district;
+        }
+
+        [HttpGet("getbyid")]
+
+        public District GetById(int id)
+        {
+            return _districtService.GetById(id);
         }
 
         

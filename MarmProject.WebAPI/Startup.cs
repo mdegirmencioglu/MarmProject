@@ -36,6 +36,7 @@ namespace MarmProject.WebAPI
             services.AddSingleton<IProvinceDal,EfProvinceDal>();
             services.AddSingleton<IDistrictService, DistrictManager>();
             services.AddSingleton<IDistrictDal, EfDistrictDal>();
+            services.AddMemoryCache();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MarmProject.WebAPI", Version = "v1" });

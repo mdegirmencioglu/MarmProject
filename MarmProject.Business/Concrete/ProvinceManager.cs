@@ -1,6 +1,7 @@
 ﻿using MarmProject.Business.Abstract;
 using MarmProject.DataAccess.Abstract;
 using MarmProject.Entities.Concrete;
+using MarmProject.Entities.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,11 @@ namespace MarmProject.Business.Concrete
         public Province GetById(int id)
         {
             return _provinceDal.GetByID(id);
+        }
+
+        public List<ProvinceDistrictDto> GetDistrictDtos(int id)
+        {
+            return _provinceDal.GetDistricts(id);
         }
 
         public void Update(Province entity)

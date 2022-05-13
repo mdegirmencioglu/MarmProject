@@ -37,6 +37,7 @@ namespace MarmProject.Business.Concrete
         {
             return _districtDal.GetByID(id);
         }
+                
 
         public void Update(District entity)
         {
