@@ -26,9 +26,9 @@ namespace MarmProject.WebAPI.Controllers
             return _districtService.GetAll();
         }
 
-        [HttpPost]
+        [HttpPost("add")]
 
-        public District Post(District district)
+        public District Add(District district)
         {
             _districtService.Add(district);
             return district;
@@ -41,6 +41,13 @@ namespace MarmProject.WebAPI.Controllers
             return _districtService.GetById(id);
         }
 
-        
+        [HttpPost("delete")]
+
+        public District Delete(District district)
+        {
+            _districtService.Delete(district);
+            return district;
+        }
+
     }
 }

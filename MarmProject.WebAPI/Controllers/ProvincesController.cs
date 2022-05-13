@@ -5,6 +5,7 @@ using MarmProject.Entities.Concrete;
 using MarmProject.Entities.Dtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using System.Collections.Generic;
 
 namespace MarmProject.WebAPI.Controllers
@@ -14,22 +15,24 @@ namespace MarmProject.WebAPI.Controllers
     public class ProvincesController : ControllerBase
     {
 
-        IProvinceService _provinceService;
+                IProvinceService _provinceService;
 
         public ProvincesController(IProvinceService provinceService)
         {
             _provinceService = provinceService;
+           
         }
 
         [HttpGet("getall")]
 
-        public List<Province> Get()
+        public List<Province> GetAll()
         {
+                        
             return _provinceService.GetAll();
         }
 
         [HttpGet("getbyid")]
-
+        
         public Province GetById(int id)
         {
             return _provinceService.GetById(id);
@@ -42,6 +45,22 @@ namespace MarmProject.WebAPI.Controllers
                 return _provinceService.GetDistrictDtos(id);
 
             }
+
+        [HttpPost("add")]
+
+        public Province Add(Province province)
+        {
+            _provinceService.Add(province);
+            return province;
+        }
+
+        [HttpPost("delete")]
+
+        public Province Delete(Province province)
+        {
+            _provinceService.Delete(province);
+            return province;
+        }
 
 
     }
